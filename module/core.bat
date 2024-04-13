@@ -17,5 +17,3 @@ if exist "%m%\cmake\bin" set PATH=%m%\cmake\bin;%PATH%
 if exist "%m%\mingw64\bin" set PATH=%m%\mingw64\bin;%PATH%
 if exist "%m%\w64devkit\bin" set PATH=%m%\w64devkit\bin;%PATH%
 set m=
-echo %PATH%
-pause

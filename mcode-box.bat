@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 REM PROXY
-set HTTP_PROXY=localhost:7890
+set HTTP_PROXY=
 set HTTPS_PROXY=%HTTP_PROXY%
 REM tool exe init
 set TOOL_DIR=%~dp0tool

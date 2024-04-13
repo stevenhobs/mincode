@@ -2,6 +2,7 @@
 setlocal
 set MCODE_HOME=%~dp0
 call %MCODE_HOME%\module\core.bat
+set PATH=%MCODE_HOME%;%PATH%
 set VSCODE_DEV=
 set ELECTRON_RUN_AS_NODE=1
 "%~dp0ide\code\app\Code.exe" "%~dp0ide\code\app\resources\app\out\cli.js" %*
