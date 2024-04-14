@@ -55,9 +55,7 @@ if not exist "%SDK_DIR%\nodejs\node.exe" (
   goto web_end
 )
 set NPM_MGR=%SDK_DIR%\nodejs\npm
-@REM start /b %NPM_MGR% config set registry "https://registry.npmmirror.com"
-@REM start /b %NPM_MGR% config set cache "%CACHE%\npm-cache"
-echo "TODO" npm config
+%NPM_MGR% config set registry "https://registry.npmmirror.com"
 echo [WEB:NPM] npm config over.
 goto web_end
 
