@@ -1,5 +1,5 @@
 setlocal
-set np_list=(nvm node-conf)
+set np_list=(nvm npmrc yarnrc)
 for %%t in %np_list% do (
   if "%~2" == "%%~t" (
     set TARGET_FOUND=1
@@ -27,9 +27,9 @@ set WEB_NVM_AR=%MCODE_DL%\nvm-ar.zip
 setlocal
 set NVM_HOME=%SDK_DIR%\nvm
 set NVM_SYMLINK=%SDK_DIR%\nodejs
-@REM %WGET_EXE% -O %WEB_NVM_AR% %WEB_NVM_URL%
+%WGET_EXE% -O %WEB_NVM_AR% %WEB_NVM_URL%
 %MKDIR_EXE% -p %NVM_HOME%
-@REM %_7Z_EXE% x %WEB_NVM_AR% -o"%NVM_HOME%"
+%_7Z_EXE% x %WEB_NVM_AR% -o"%NVM_HOME%"
 echo > %NVM_HOME%\settings.txt
 echo [WEB:NVM] Node version manager has installed.
 %MKDIR_EXE% -p %SDK_DIR%\nodejs-versions

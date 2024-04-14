@@ -3,3 +3,6 @@ sdk/
 tool/
 ide/
 store/
+min/
+pack.bat
+mincode.7z
