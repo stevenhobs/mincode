@@ -16,4 +16,9 @@ if exist "%m%\git\cmd" set PATH=%m%\git\cmd;%PATH%
 if exist "%m%\cmake\bin" set PATH=%m%\cmake\bin;%PATH%
 if exist "%m%\mingw64\bin" set PATH=%m%\mingw64\bin;%PATH%
 if exist "%m%\w64devkit\bin" set PATH=%m%\w64devkit\bin;%PATH%
+if exist "%m%\nvm\nvm.exe" (
+    set NVM_HOME=%m%\nvm
+    set NVM_SYMLINK=%m%\nodejs
+    set PATH=%m%\nodejs;%m%\nvm;%PATH%
+)
 set m=

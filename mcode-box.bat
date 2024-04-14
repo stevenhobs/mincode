@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 REM PROXY
-set HTTP_PROXY=
+set HTTP_PROXY=localhost:7890
 set HTTPS_PROXY=%HTTP_PROXY%
 REM tool exe init
 set TOOL_DIR=%~dp0tool
@@ -38,7 +38,7 @@ if not exist "%SDK_BIN_DIR%" (
 REM args parse
 if "%~1"=="" (
   echo MinCode-Box: VSCode Portable DIY ToolBox
-  echo ""
+  echo
   echo Usage:  mcode-box ^<operation^> ^<namespace:target^> [--flag]
   echo Example:"
   echo   install,in code:app [--version 1.72]      Install VSCode/Sdk/Tool
@@ -48,6 +48,7 @@ if "%~1"=="" (
   echo   code -^> app,ext,conf
   echo   base -^> git
   echo   cc   -^> w64devkit,mingw,cmake,ninja
+  echo   web  -^> nvm
   goto end
 ) else if "%~1"=="in" (
   goto install
@@ -77,7 +78,7 @@ for /f "tokens=2 delims=:" %%a in ("%~2") do (
     set "target=%%a"
 )
 
-set namesp=(code base cc)
+set namesp=(code base cc web)
 for %%n in %namesp% do (
     if "%prefix%" == "%%~n" (
       set NS_FOUND=1
