@@ -1,13 +1,12 @@
 @echo off
 setlocal
-set MCODE_HOME=%~dp0
-echo %PATH% | findstr /C:"%MCODE_HOME%" > nul
-if errorlevel 1 (
-  echo [MTERM] init environments
-) else (
-  goto exec_cmd
-)
-call %MCODE_HOME%\module\core.bat
-set PATH=%MCODE_HOME%;%PATH%
+REM PROXY
+set HTTP_PROXY=
+set HTTPS_PROXY=%HTTP_PROXY%
+if not "%M_HOME%" == "" goto exec_cmd
+REM init
+set M_HOME=%~dp0
+call %M_HOME%\module\core.bat
+set PATH=%M_HOME%;%PATH%
 :exec_cmd
 cmd.exe /k prompt [MTERM]$S$E[92m$P$E[0m$S$$

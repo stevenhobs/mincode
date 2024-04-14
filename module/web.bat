@@ -36,8 +36,8 @@ echo [WEB:NVM] Node version manager has installed.
 %MKDIR_EXE% -p %SDK_DIR%\nodejs-versions
 set NVM_BIN=%NVM_HOME%\nvm.exe
 if exist "%NVM_BIN%" (%NVM_BIN% root %SDK_DIR%\nodejs-versions)
-if exist "%NVM_BIN%" (%NVM_BIN% node_mirror https://npmmirror.com/mirrors/node)
-if exist "%NVM_BIN%" (%NVM_BIN% npm_mirror https://registry.npmmirror.com)
+if exist "%NVM_BIN%" (%NVM_BIN% node_mirror "https://npmmirror.com/mirrors/node")
+if exist "%NVM_BIN%" (%NVM_BIN% npm_mirror "https://registry.npmmirror.com")
 endlocal
 goto web_end
 
@@ -54,9 +54,10 @@ if not exist "%SDK_DIR%\nodejs\node.exe" (
   echo [WEB:NPM] Not found Nodejs loaded. Try "nvm use version_num"
   goto web_end
 )
-set NPM_BIN=%SDK_DIR%\nodejs\npm.cmd
-%NPM_BIN% config set registry https://registry.npmmirror.com
-%NPM_BIN% config set cache %CACHE%\npm-cache
+set NPM_MGR=%SDK_DIR%\nodejs\npm
+@REM start /b %NPM_MGR% config set registry "https://registry.npmmirror.com"
+@REM start /b %NPM_MGR% config set cache "%CACHE%\npm-cache"
+echo "TODO" npm config
 echo [WEB:NPM] npm config over.
 goto web_end
 
@@ -66,8 +67,8 @@ if not exist "SDK_DIR%\nodejs\yarn.cmd" (
   goto web_end
 )
 set YARN_MGR=%SDK_DIR%\nodejs\yarn.cmd%
-%YARN_MGR% config set registry https://registry.npmmirror.com
-%YARN_MGR% config set cache %CACHE%\yarn-cache
+%YARN_MGR% config set registry "https://registry.npmmirror.com"
+%YARN_MGR% config set cache "%CACHE%\yarn-cache"
 echo [WB:YARN] yarn config over.
 
 :web_end

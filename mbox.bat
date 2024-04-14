@@ -1,8 +1,5 @@
 @echo off
 setlocal enabledelayedexpansion
-REM PROXY
-set HTTP_PROXY=localhost:7890
-set HTTPS_PROXY=%HTTP_PROXY%
 REM tool exe init
 set TOOL_DIR=%~dp0tool
 set WGET_EXE=%~dp0tool\wget.exe
@@ -18,6 +15,11 @@ set MCODE=%~dp0mcode.bat
 REM dir init
 set M_ROOT=%~dp0.
 set CACHE=%~dp0cache
+set USERPROFILE=%~dp0store
+set APPDATA=%USERPROFILE%\APPDATA\Roaming
+set LOCALDATA=%USERPROFILE%\APPDATA\Local
+set XDG_CONFIG_HOME=%USERPROFILE%\config
+set XDG_CACHE_HOME=%CACHE%
 set TEMP=%CACHE%\temp
 set TMP=%TEMP%
 set MCODE_DL=%CACHE%\mcode
