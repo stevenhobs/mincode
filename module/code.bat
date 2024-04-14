@@ -64,8 +64,8 @@ call %MCODE% --install-extension "MS-CEINTL.vscode-language-pack-zh-hans"
 call %MCODE% --install-extension "PKief.material-icon-theme"
 call %MCODE% --install-extension "fisheva.eva-theme"
 call %MCODE% --install-extension "oderwat.indent-rainbow"
-call %MCODE% --install-extension "aaron-bond.better-comments"
 call %MCODE% --install-extension "christian-kohler.path-intellisense"
+call %MCODE% --install-extension "mikeburgh.xml-format"
 echo [VSCODE:EXT] basic extensions have been installed.
 :code_conf
 set VSC_APP_CONF=%VSC_DATA%\user-data\User\settings.json
