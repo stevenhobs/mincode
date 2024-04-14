@@ -3,8 +3,9 @@ set APPDATA=%USERPROFILE%\APPDATA\Roaming
 set LOCALDATA=%USERPROFILE%\APPDATA\Local
 set XDG_CONFIG_HOME=%USERPROFILE%\config
 set XDG_CACHE_HOME=%MCODE_HOME%cache
-set %TEMP%=%XDG_CACHE_HOME%\temp
-set %TMP%=%TEMP%
+set TEMP=%XDG_CACHE_HOME%\temp
+set TMP=%TEMP%
+
 if not exist "%APPDATA%" (mkdir %APPDATA%)
 if not exist "%LOCALDATA%" (mkdir %LOCALDATA%)
 if not exist "%XDG_CONFIG_HOME%" (mkdir %XDG_CONFIG_HOME%)
