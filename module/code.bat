@@ -67,6 +67,7 @@ call %MCODE% --install-extension "oderwat.indent-rainbow"
 call %MCODE% --install-extension "christian-kohler.path-intellisense"
 call %MCODE% --install-extension "mikeburgh.xml-format"
 echo [VSCODE:EXT] basic extensions have been installed.
+goto code_end
 :code_conf
 set VSC_APP_CONF=%VSC_DATA%\user-data\User\settings.json
 if not exist "%VSC_APP_CONF%" (
