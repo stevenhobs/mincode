@@ -28,7 +28,7 @@ set CC_W64DEVKIT_AR=%MCODE_DL%\w64devkit-ar.zip
 %WGET_EXE% -O %CC_W64DEVKIT_AR% %CC_W64DEVKIT_URL%
 echo [CC:W64DEVKIT] w64devkit Archive Download over.
 %RM_EXE% -rf %SDK_DIR%\w64devkit
-%UNZIP_EXE% "%CC_W64DEVKIT_AR%" -d "%SDK_DIR%"
+%_7Z_EXE% x "%CC_W64DEVKIT_AR%" -o"%SDK_DIR%"
 goto cc_end
 
 :cc_mingw64
@@ -46,7 +46,7 @@ set CC_CMAKE_AR=%MCODE_DL%\cmake-ar.zip
 %WGET_EXE% -O %CC_CMAKE_AR% %CC_CMAKE_URL%
 echo [CC:CMAKE] Archive Download Over.
 %RM_EXE% -rf %SDK_DIR%\cmake
-%UNZIP_EXE% -q %CC_CMAKE_AR% -d %TEMP%
+%_7Z_EXE% x "%CC_CMAKE_AR%" -o"%TEMP%"
 for /d %%D in ("%TEMP%\cmake*") do (
     %MV_EXE% "%%~D" "%SDK_DIR%\cmake"
 )
@@ -62,7 +62,7 @@ set CC_NINJA_URL=https://github.com/ninja-build/ninja/releases/download/v1.12.0/
 set CC_NINJA_AR=%MCODE_DL%\ninja-ar.zip
 %WGET_EXE% -O %CC_NINJA_AR% %CC_NINJA_URL%
 echo [CC:NINJA] Archive Download Over.
-%UNZIP_EXE% -q %CC_NINJA_AR% -d %SDK_BIN_DIR%
+%_7Z_EXE% x "%CC_NINJA_AR%" -o"%SDK_BIN_DIR%"
 echo [CC:NINJA] ninja-build installed.
 :cc_end
 endlocal

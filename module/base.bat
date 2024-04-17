@@ -17,7 +17,7 @@ set BASE_GIT_AR=%MCODE_DL%\git-ar.zip
 %WGET_EXE% -O %BASE_GIT_AR% %BASE_GIT_URL%
 %RM_EXE% -rf %SDK_DIR%\git
 %MKDIR_EXE% -p %SDK_DIR%\git
-%UNZIP_EXE% -q %BASE_GIT_AR% -d %SDK_DIR%\git
+%_7Z_EXE% x "%BASE_GIT_AR%" -o"%SDK_DIR%\git"
 echo [BASE:GIT] Git install OK
 :base_bash
 %CP_EXE% %TOOL_DIR%\busybox.exe %SDK_BIN_DIR%

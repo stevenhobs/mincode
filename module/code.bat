@@ -50,11 +50,11 @@ set /p input="[CODE:CHOOSE] Will use the local file for install? (yes/no) "
 :code_app_ar_wget
   echo [CODE:APP] Start to download installer file.
   %WGET_EXE% -O %CODE_ARCHIVE_FILE% %CODE_DL_URL%
-  echo [CODE:APP] Wget Download is OVER.
+  echo [CODE:APP] Wget download over.
 )
 :code_app_ar_extract
 %RM_EXE% -rf %VSC_APP%/*
-%UNZIP_EXE% %CODE_ARCHIVE_FILE% -oq -d %VSC_APP%
+%_7Z_EXE% x %CODE_ARCHIVE_FILE% -o"%VSC_APP%"
 %LINK_EXE% -s %VSC_DATA% %VSC_APP%/data
 echo [CODE:APP] vscode app has installed!
 goto code_end
@@ -93,7 +93,7 @@ rem terminal settings
 %JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.cursorBlinking" -v true
 %JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.cursorStyle" -v "line"
 %JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.cursorWidth" -v 2
-%JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.defaultProfile\.windows" -v "PowerShell"
+%JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.defaultProfile\.windows" -v "Command Prompt"
 %JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "terminal\.integrated\.fontSize" -v 12
 rem other props
 %JJ_EXE% -i %VSC_APP_CONF% -o %VSC_APP_CONF% "update\.mode" -v "none"
