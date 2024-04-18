@@ -20,7 +20,9 @@ for %%t in %np_list% do (
     goto code_%~2
   )
 )
-
+if not "%TARGET_FOUND%" == "1" (
+  goto code_end
+)
 :code_app
 if not exist "%VSC_APP%" (
   %MKDIR_EXE% -p "%VSC_APP%"
@@ -66,10 +68,9 @@ call %MCODE% --install-extension "fisheva.eva-theme"
 call %MCODE% --install-extension "oderwat.indent-rainbow"
 call %MCODE% --install-extension "christian-kohler.path-intellisense"
 call %MCODE% --install-extension "mikeburgh.xml-format"
-echo [VSCODE:EXT] basic extensions have been installed.
 goto code_end
 :code_conf
-set VSC_APP_CONF=%VSC_DATA%\user-data\User\settings.json
+set "VSC_APP_CONF=%VSC_DATA%\user-data\User\settings.json"
 if not exist "%VSC_APP_CONF%" (
   %MKDIR_EXE% -p "%VSC_DATA%\user-data\User"
   echo {} > %VSC_APP_CONF%
